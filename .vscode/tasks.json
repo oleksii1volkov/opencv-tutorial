@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Object Detection",
+            "type": "shell",
+            "command": "${workspaceFolder}\\build\\targets\\object_detection\\Debug\\object_detection.exe",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "QT_QPA_PLATFORM_PLUGIN_PATH": "${workspaceFolder}\\build\\vcpkg_installed\\x64-windows\\debug\\Qt6\\plugins\\platforms",
+                    "QML2_IMPORT_PATH": "${workspaceFolder}\\build\\vcpkg_installed\\x64-windows\\debug\\Qt6\\qml",
+                    "PATH": "${env:PATH};${workspaceFolder}\\build\\vcpkg_installed\\x64-windows\\debug\\bin"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

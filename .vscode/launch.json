@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cppvsdbg",
+            "request": "launch",
+            "name": "Debug",
+            "program": "${workspaceFolder}\\build\\targets\\object_detection\\Debug\\object_detection.exe",
+            "args": [],
+            "environment": [
+                {
+                    "name": "QT_QPA_PLATFORM_PLUGIN_PATH",
+                    "value": "${workspaceFolder}\\build\\vcpkg_installed\\x64-windows\\debug\\Qt6\\plugins\\platforms"
+                },
+                {
+                    "name": "QML2_IMPORT_PATH",
+                    "value": "${workspaceFolder}\\build\\vcpkg_installed\\x64-windows\\debug\\Qt6\\qml"
+                },
+                {
+                    "name": "PATH",
+                    "value": "${env:PATH};${workspaceFolder}\\build\\vcpkg_installed\\x64-windows\\debug\\bin"
+                }
+            ],
+            "cwd": "${workspaceFolder}",
+        },
+    ]
+}

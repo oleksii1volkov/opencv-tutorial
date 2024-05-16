@@ -1,0 +1,24 @@
+{
+  "dependencies": [
+    {
+      "name": "gstreamer",
+      "features": [
+        "soup",
+        "plugins-base",
+        "plugins-good",
+        "plugins-bad",
+        "bzip2-good",
+        "libav",
+        "ogg",
+        "x264"
+      ]
+    },
+    {
+      "name": "opencv",
+      "features": ["gstreamer", "ffmpeg", "tbb", "eigen", "qt", "opengl"]
+    },
+    {
+      "name": "openssl"
+    }
+  ]
+}
