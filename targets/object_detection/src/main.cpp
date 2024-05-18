@@ -2,7 +2,7 @@
 #include "qt/ImageLoader.hpp"
 #include "qt/ImageModel.hpp"
 #include "qt/ImageProvider.hpp"
-#include "qt/VideoItem.hpp"
+#include "qt/WebCamFaceDetectionItem.hpp"
 
 #include <opencv2/opencv.hpp>
 
@@ -17,7 +17,8 @@
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<VideoItem>("VideoComponents", 1, 0, "VideoItem");
+    qmlRegisterType<WebCamFaceDetectionItem>("VideoComponents", 1, 0,
+                                             "WebCamFaceDetectionItem");
 
     QQmlApplicationEngine engine;
 

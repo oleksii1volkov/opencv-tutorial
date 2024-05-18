@@ -1,21 +1,26 @@
 #include "qt/VideoItem.hpp"
-#include "utils.hpp"
+#include "opencv/video_stream.hpp"
 
 #include <QImage>
 #include <QPainter>
 #include <QTimer>
 
-VideoItem::VideoItem(QQuickItem *parent)
-    : QQuickPaintedItem(parent),
-      face_classifier_(utils::get_frontalface_classifier()) {}
+VideoItem::VideoItem(QQuickItem *parent) : QQuickPaintedItem(parent) {}
 
-void VideoItem::startCapture() {
-    video_capture_.open(0);
+std::unique_ptr<VideoStream> VideoItem::createVideoStream() { return nullptr; }
+
+void VideoItem::play() {
+    if (!videoStream_) {
+        if (videoStream_ = createVideoStream(); !videoStream_) {
+            return;
+        }
+    }
+
+    videoStream_->open();
     QTimer *timer = new QTimer(this);
 
     connect(timer, &QTimer::timeout, this, [&]() {
-        if (video_capture_.read(frame_)) {
-            utils::detect_faces(frame_, face_classifier_);
+        if (videoStream_->read(frame_)) {
             cv::cvtColor(frame_, frame_, cv::COLOR_BGR2RGB);
             image_ = QImage(frame_.data, frame_.cols, frame_.rows, frame_.step,
                             QImage::Format_RGB888);

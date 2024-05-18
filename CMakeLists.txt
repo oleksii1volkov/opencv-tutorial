@@ -30,3 +30,4 @@ include_directories(${CMAKE_BINARY_DIR})
 
 add_subdirectory(targets/gstreamer)
 add_subdirectory(targets/object_detection)
+add_subdirectory(targets/object_tracking)

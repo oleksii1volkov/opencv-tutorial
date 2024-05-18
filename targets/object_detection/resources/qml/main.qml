@@ -45,12 +45,12 @@ ApplicationWindow {
             }
         }
 
-        VideoItem {
+        WebCamFaceDetectionItem {
             SplitView.minimumHeight: 200
             SplitView.preferredHeight: 400
             SplitView.maximumHeight: 600
             
-            Component.onCompleted: startCapture()
+            Component.onCompleted: play()
         }
     }
 }

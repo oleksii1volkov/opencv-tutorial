@@ -1,13 +1,25 @@
-set(INCLUDE_DIRS include include/qt)
+set(INCLUDE_DIRS
+    include
+    include/qt
+    ${WORKSPACE_DIR}/targets/common/include
+    ${WORKSPACE_DIR}/targets/common/include/qt
+)
+
 set(SOURCE_DIR src)
 
 file(GLOB_RECURSE SOURCE_FILES "${SOURCE_DIR}/*.cpp")
-file(GLOB_RECURSE HEADER_FILES "include/qt/*.hpp")
+file(GLOB_RECURSE COMMON_SOURCE_FILES "${WORKSPACE_DIR}/targets/common/src/*.cpp")
+
+file(GLOB_RECURSE QT_HEADER_FILES "include/qt/*.hpp")
+file(GLOB_RECURSE COMMON_QT_HEADER_FILES "${WORKSPACE_DIR}/targets/common/include/qt/*.hpp")
+
 qt6_add_resources(RESOURCE_FILES resources/resources.qrc)
 
 set(TARGET_NAME object_detection)
 add_executable(${TARGET_NAME}
-    ${HEADER_FILES}
+    ${COMMON_QT_HEADER_FILES}
+    ${QT_HEADER_FILES}
+    ${COMMON_SOURCE_FILES}
     ${SOURCE_FILES}
     ${RESOURCE_FILES}
 )

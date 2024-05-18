@@ -10,8 +10,9 @@ $env:QT_QPA_PLATFORM_PLUGIN_PATH = "$outputDirectory\vcpkg_installed\x64-windows
 $env:QT_PLUGIN_PATH = "$outputDirectory\vcpkg_installed\x64-windows\debug\Qt6\plugins"
 $env:QML2_IMPORT_PATH = "$outputDirectory\vcpkg_installed\x64-windows\debug\Qt6\qml"
 
-$targetName = "object_detection"
 # $targetName = "gstreamer"
+# $targetName = "object_detection"
+$targetName = "object_tracking"
 $executablePath = "$outputDirectory\targets\$targetName\Debug\$targetName.exe"
 
 & $executablePath
